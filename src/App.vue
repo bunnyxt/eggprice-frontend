@@ -4,9 +4,7 @@
     <a-layout>
       <layout-header />
       <a-layout-content :style="{ margin: '24px 16px 0' }">
-        <div :style="sectionBlockStyle">
-          content
-        </div>
+        <router-view></router-view>
       </a-layout-content>
       <div class="fake-footer"></div>
       <layout-footer />

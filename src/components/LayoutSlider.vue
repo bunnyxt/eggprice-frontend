@@ -5,9 +5,9 @@
   >
     <div class="logo" />
     <a-menu theme="dark" mode="inline" :defaultSelectedKeys="['1']">
-      <a-menu-item key="1">
+      <a-menu-item key="1" @click="handleHistoryClick()">
         <a-icon type="user" />
-        <span class="nav-text">价格查询</span>
+        <span class="nav-text">历史价格</span>
       </a-menu-item>
       <a-menu-item key="2">
         <a-icon type="video-camera" />
@@ -27,7 +27,12 @@
 
 <script>
 export default {
-  name: "LayoutSlider"
+  name: "LayoutSlider",
+  methods: {
+    handleHistoryClick: function () {
+      this.$router.push("/history");
+    }
+  }
 }
 </script>
 
