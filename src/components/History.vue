@@ -1,6 +1,6 @@
 <template>
-  <div>
-    History
+  <div :style="sectionBlockStyle">
+    <h1>历史价格</h1>
     <HistoryChart />
   </div>
 </template>
@@ -12,6 +12,14 @@ export default {
   name: "History",
   components: {
       HistoryChart
+  },
+  data: function() {
+    return {
+      sectionBlockStyle: {
+        background: "#FFF",
+        padding: "24px"
+      },
+    }
   }
 }
 </script>
