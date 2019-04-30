@@ -1,25 +1,21 @@
 <template>
   <div>
-    <a-spin :spinning="isLoadingOption">
-      <a-cascader :options="options" placeholder="请选择地区" v-model="value"/>
-    </a-spin>
-    <a-spin :spinning="isLoadingPriceData">
-      <apexchart type="area" height="400" :options="chartOptions" :series="series"/>
-    </a-spin>
+    <apexchart type="area" height="400" :options="chartOptions" :series="series"/>
   </div>
 </template>
 
 <script>
 export default {
   name: "HistoryChart",
+  props: {
+    priceData: Array
+  },
   data: function() {
     return {
-      value: [],
-      options: [],
-      priceData: [],
       series: [
       {
-        data: null
+        name: "鸡蛋价格",
+        data: []
       }
       ],
       chartOptions: {
@@ -67,34 +63,18 @@ export default {
             stops: [0, 100]
           }
         }
-      },
-      isLoadingOption: false,
-      isLoadingPriceData: false
+      }
     };
   },
   watch: {
-    value: function() {
-      this.isLoadingPriceData = true
-      fetch("http://api.bunnyxt.com/eggprice/api/get_price_data.php?province="+this.value[0]+"&city="+this.value[1]+"&country="+this.value[2])
-        .then(response => response.json())
-        .then(json => this.priceData = json)
-        .then(() => {
-          var arr = new Array()
-          this.priceData.forEach(v => arr.push([v.date, v.price]))
-          this.series = [{
-            name: "鸡蛋价格",
-            data: arr
-          }]
-        })
-        .then(() => this.isLoadingPriceData = false)
+    priceData: function() {
+      var arr = new Array()
+      this.priceData.forEach(v => arr.push([v.date, v.price]))
+      this.series = [{
+        name: "鸡蛋价格",
+        data: arr
+      }]
     }
-  },
-  mounted: function() {
-    this.isLoadingOption = true
-    fetch("http://api.bunnyxt.com/eggprice/api/get_location_option.php")
-      .then(response => response.json())
-      .then(json => this.options = json)
-      .then(() => this.isLoadingOption = false)
   }
 };
 </script>
