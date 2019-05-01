@@ -19,7 +19,7 @@ export default {
         dataIndex: 'date',
         width: '120px'
       }, {
-        title: '价格（单位：元）',
+        title: '价格（单位：元/公斤）',
         dataIndex: 'price',
         width: '40%'
       }],

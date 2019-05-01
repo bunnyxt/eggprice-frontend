@@ -14,7 +14,7 @@ export default {
     return {
       series: [
       {
-        name: "鸡蛋价格",
+        name: "价格（单位：元/公斤）",
         data: []
       }
       ],
