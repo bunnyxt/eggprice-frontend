@@ -1,22 +1,40 @@
 <template>
-  <div :style="sectionBlockStyle">
-    <h1>历史价格</h1>
-    <a-spin :spinning="isLoadingOption">
-      <a-cascader :options="options" placeholder="请选择地区" v-model="value"/>
-    </a-spin>
-    <a-spin :spinning="isLoadingPriceData">
-      <HistoryChart :priceData="priceData"/>
-    </a-spin>
+  <div>
+    <div :style="sectionBlockStyle">
+      <h1>历史价格</h1>
+      <a-spin :spinning="isLoadingOption">
+        <a-cascader :options="options" placeholder="请选择地区" v-model="value"/>
+      </a-spin>
+    </div>
+
+    <div v-if="value.length == 3">
+      <div class="section-seperator"></div>
+      <div :style="sectionBlockStyle">
+        <a-spin :spinning="isLoadingPriceData">
+          <HistoryChart :priceData="priceData"/>
+        </a-spin>
+      </div>
+
+      <div class="section-seperator"></div>
+      <div :style="sectionBlockStyle">
+        <a-spin :spinning="isLoadingPriceData">
+          <HistoryTable :priceData="priceData"/>
+        </a-spin>
+      </div>
+    </div>
+
   </div>
 </template>
 
 <script>
 import HistoryChart from './HistoryChart.vue'
+import HistoryTable from './HistoryTable.vue'
 
 export default {
   name: "History",
   components: {
-      HistoryChart
+      HistoryChart,
+      HistoryTable
   },
   data: function() {
     return {
