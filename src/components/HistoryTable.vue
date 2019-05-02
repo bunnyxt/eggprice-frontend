@@ -1,6 +1,6 @@
 <template>
   <a-table :columns="columns"
-    :rowKey="r => r.id"
+    :rowKey="r => r.date"
     :dataSource="priceDataFiltered"
   >
   </a-table>
