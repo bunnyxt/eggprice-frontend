@@ -3,10 +3,13 @@
     breakpoint="lg"
     collapsedWidth="0"
   >
-    <div class="logo" />
+    <div style="margin: 16px" @click="handleLogoClick()">
+      <img src="/logo.png" style="width:32px; height:32px;"/>
+      <span style="color:rgb(255,255,255,0.65); margin-left: 8px; font-size:14px">鸡蛋价格监测</span>
+    </div>
     <a-menu theme="dark" mode="inline" :defaultSelectedKeys="['1']">
       <a-menu-item key="1" @click="handleHistoryClick()">
-        <a-icon type="user" />
+        <a-icon type="line-chart" />
         <span class="nav-text">历史价格</span>
       </a-menu-item>
       <a-menu-item key="2">
@@ -29,17 +32,12 @@
 export default {
   name: "LayoutSlider",
   methods: {
+    handleLogoClick: function () {
+      this.$router.push("/");
+    },
     handleHistoryClick: function () {
       this.$router.push("/history");
     }
   }
 }
 </script>
-
-<style>
-.logo {
-  height: 32px;
-  background: rgba(255,255,255,.2);
-  margin: 16px;
-}
-</style>
