@@ -51,7 +51,7 @@ export default {
   },
   mounted: function() {
     this.isLoadingOption = true
-    fetch("http://eggpriceapi.bunnyxt.com/api/get_location_option.php")
+    fetch("http://api.jiagejiance.com/api/get_location_option.php")
       .then(response => response.json())
       .then(json => this.options = json)
       .then(() => this.isLoadingOption = false)
@@ -59,7 +59,7 @@ export default {
   watch: {
     value: function() {
       this.isLoadingPriceData = true
-      fetch("http://eggpriceapi.bunnyxt.com/api/get_price_data.php?province="+this.value[0]+"&city="+this.value[1]+"&country="+this.value[2])
+      fetch("http://api.jiagejiance.com/api/get_price_data.php?province="+this.value[0]+"&city="+this.value[1]+"&country="+this.value[2])
         .then(response => response.json())
         .then(json => this.priceData = json)
         .then(() => this.isLoadingPriceData = false)
