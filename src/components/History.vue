@@ -67,3 +67,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.ant-cascader-input.ant-input {
+    width: 250px;
+}
+</style>
