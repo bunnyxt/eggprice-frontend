@@ -9,6 +9,7 @@ import { Icon } from 'ant-design-vue'
 import { Cascader } from 'ant-design-vue'
 import { Spin } from 'ant-design-vue'
 import { Table } from 'ant-design-vue'
+import { Carousel } from 'ant-design-vue'
 
 // apex chart
 import VueApexCharts from 'vue-apexcharts'
@@ -24,6 +25,7 @@ Vue.use(Icon)
 Vue.use(Cascader)
 Vue.use(Spin)
 Vue.use(Table)
+Vue.use(Carousel)
 
 // apex chart
 Vue.use(VueApexCharts)
