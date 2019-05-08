@@ -4,6 +4,7 @@ import Router from "vue-router";
 const Home = () => import("./components/Home");
 const History = () => import("./components/History");
 const Forecast = () => import("./components/Forecast");
+const ForecastDetail = () => import("./components/ForecastDetail");
 const Crwaler = () => import("./components/Crwaler");
 const NotFound = () => import("./components/NotFound");
 
@@ -25,6 +26,9 @@ export default new Router({
         }, {
             path: "/forecast",
             component: Forecast
+        }, {
+            path: "/forecast/:id",
+            component: ForecastDetail
         }, {
             path: "/crwaler",
             component: Crwaler
