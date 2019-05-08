@@ -13,10 +13,10 @@ export default {
   data: function() {
     return {
       series: [
-      {
-        name: "价格（单位：元/公斤）",
-        data: []
-      }
+        {
+          name: "鸡蛋价格（元/公斤）",
+          data: []
+        }
       ],
       chartOptions: {
         chart: {
@@ -71,7 +71,7 @@ export default {
       var arr = new Array()
       this.priceData.forEach(v => arr.push([v.date, v.price]))
       this.series = [{
-        name: "鸡蛋价格",
+        name: "鸡蛋价格（元/公斤）",
         data: arr
       }]
     }

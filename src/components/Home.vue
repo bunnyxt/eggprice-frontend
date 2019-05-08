@@ -8,7 +8,7 @@
         </div>
         <div @click="handleForecastClick()">
           <h1><a-icon type="money-collect" /> 价格预测</h1>
-          <p>选择地区进行预测</p>
+          <p>查看价格预测结果</p>
         </div>
         <div @click="handleCrwalerClick()">
           <h1><a-icon type="code" /> 爬虫调度</h1>
@@ -27,7 +27,7 @@ export default {
       sectionBlockStyle: {
         background: "#FFF",
         padding: "24px"
-      },
+      }
     }
   },
   methods: {
